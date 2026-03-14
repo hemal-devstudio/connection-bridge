@@ -16,9 +16,9 @@
 
         if (type && code) {
             // 2. Build the dynamic deep link
-            // Example: connectionapp://profile?id=user123
-            // Example: connectionapp://invite?id=abc456
-            window.location.href = `connectionapp://${type}?id=${code}`;
+            // Example: connectionapp://profile?code=user123
+            // Example: connectionapp://invite?code=abc456
+            window.location.href = `connectionapp://${type}?code=${code}`;
         } else {
             document.body.innerHTML = "<h1>Link Expired or Invalid</h1>";
         }
