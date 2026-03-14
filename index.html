@@ -12,13 +12,13 @@
         
         // 1. Get the type of content (invite, profile, etc.)
         const type = urlParams.get('type'); 
-        const id = urlParams.get('id'); // This could be the invite code or a userId
+        const code = urlParams.get('code'); // This could be the invite code or a userId
 
-        if (type && id) {
+        if (type && code) {
             // 2. Build the dynamic deep link
             // Example: connectionapp://profile?id=user123
             // Example: connectionapp://invite?id=abc456
-            window.location.href = `connectionapp://${type}?id=${id}`;
+            window.location.href = `connectionapp://${type}?id=${code}`;
         } else {
             document.body.innerHTML = "<h1>Link Expired or Invalid</h1>";
         }
