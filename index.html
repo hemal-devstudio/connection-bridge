@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Opening App...</title>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; background: #f4f4f9; }
+        .card { text-align: center; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    </style>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            if (code) {
+                // Change 'connectionapp' if you rename your app scheme later!
+                window.location.href = "connectionapp://invite?code=" + code;
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="card">
+        <h2>Connecting you...</h2>
+        <p>If the app doesn't open automatically, make sure it's installed.</p>
+    </div>
+</body>
+</html>
