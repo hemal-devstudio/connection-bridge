@@ -7,15 +7,23 @@
         .card { text-align: center; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
     </style>
     <script>
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const code = urlParams.get('code');
-            if (code) {
-                // Change 'connectionapp' if you rename your app scheme later!
-                window.location.href = "connectionapp://invite?code=" + code;
-            }
-        };
-    </script>
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // 1. Get the type of content (invite, profile, etc.)
+        const type = urlParams.get('type'); 
+        const id = urlParams.get('id'); // This could be the invite code or a userId
+
+        if (type && id) {
+            // 2. Build the dynamic deep link
+            // Example: connectionapp://profile?id=user123
+            // Example: connectionapp://invite?id=abc456
+            window.location.href = `connectionapp://${type}?id=${id}`;
+        } else {
+            document.body.innerHTML = "<h1>Link Expired or Invalid</h1>";
+        }
+    };
+</script>
 </head>
 <body>
     <div class="card">
